@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 
 const App = () => {
-    const [text,setText] = useState('')
-    useEffect(() =>{
-        const handleChange = (e) => {
-            setText(e.target.value)
-        }
-    },[text])
+    const [text, setText] = useState('')
+    
     return (
         <>
             <div className="app">
                 <div className="textarea">
-                    <input type="text" value={text} onChange={handleChange} />
+                    <textarea
+                        type="text"
+                        onChange={(e) => setText(e.target.value)}
+                        value={text}
+                        className="textarea"
+                    />
                 </div>
+                
                 <div className="preview">
-                    <input type="text" value={text}  contentEditable/>
+                    <h1 className="loading">{text.slice(1)}</h1>
                 </div>
             </div>
         </>
